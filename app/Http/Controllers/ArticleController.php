@@ -18,7 +18,7 @@ class ArticleController extends Controller
     {
         $articles = Article::all()->sortByDesc('created_at')
             ->load(['user', 'likes', 'tags']);
-
+            //load(['user', 'likes', 'tags']では、Articleモデルとリレーションを持つ他のモデルが併せて読み込まれます
         return view('articles.index', ['articles' => $articles]);
     }
 
